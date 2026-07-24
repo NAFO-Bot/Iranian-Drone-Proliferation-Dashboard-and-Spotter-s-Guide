@@ -9,7 +9,7 @@ import streamlit as st
 
 DATA_PATH = (
     Path(__file__).parent.parent
-    / "data"
+    / "Data"
     / "Proliferation_Master Sheet_Sept 2024.xlsx"
 )
 
