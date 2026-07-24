@@ -8,7 +8,7 @@ ASSETS_DIR = Path("Assets")
 
 def render_threat_library():
 
-    st.title("📖 Threat Library")
+    st.title(" Threat Library")
     st.caption("Technical reference library for Iranian UAV platforms.")
 
     # -------------------------------------------------
@@ -36,7 +36,7 @@ def render_threat_library():
 
     with col_search:
         search = st.text_input(
-            "🔍 Search",
+            " Search",
             placeholder="Search handbooks..."
         )
 
@@ -54,7 +54,7 @@ def render_threat_library():
     with col_mode:
         mode = st.radio(
             "View",
-            ["📖 Single", "⚖ Compare"],
+            [" Single", " Compare"],
             horizontal=True
         )
 
@@ -67,7 +67,7 @@ def render_threat_library():
     # SINGLE VIEW
     # ==========================================================
 
-    if mode == "📖 Single":
+    if mode == " Single":
 
         selected = st.selectbox(
             "Select Platform",
