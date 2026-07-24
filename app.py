@@ -9,7 +9,7 @@ from components.sources import render_sources
 from components.threat_library import render_threat_library
 from pathlib import Path
 import fitz  # PyMuPDF
-
+from streamlit_pdf_viewer import pdf_viewer
 # --------------------------------------------------
 # Page Configuration
 # --------------------------------------------------
