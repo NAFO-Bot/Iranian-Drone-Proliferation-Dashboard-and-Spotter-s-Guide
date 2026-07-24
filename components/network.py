@@ -205,43 +205,51 @@ def render_network(df):
             "enabled": True,
             "type": "dynamic"
         }
-    net.repulsion(
-        node_distance=280,
-        spring_length=300,
-        spring_strength=0.02,
-        central_gravity=0.10,
-        damping=0.35,
-    )
+ 
+net.repulsion(
+    node_distance=260,
+    spring_length=220,
+    spring_strength=0.03,
+    central_gravity=0.35,
+    damping=0.18,
+)
 
+net.set_options("""
+var options = {
+  "physics": {
+    "enabled": true,
+    "solver": "forceAtlas2Based",
+    "forceAtlas2Based": {
+      "gravitationalConstant": -80,
+      "centralGravity": 0.08,
+      "springLength": 220,
+      "springConstant": 0.05,
+      "damping": 0.4,
+      "avoidOverlap": 0.8
+    },
+    "stabilization": {
+      "enabled": true,
+      "iterations": 1200,
+      "fit": true
+    }
+  },
+
+  "layout": {
+    "improvedLayout": true
+  },
+
+  "interaction": {
+    "hover": true,
+    "navigationButtons": true,
+    "keyboard": true,
+    "zoomView": true,
+    "dragView": true
+  }
+}
+""")
     net.toggle_physics(False)
 
-    # ------------------------------------------------
-    # Better Interaction
-    # ------------------------------------------------
-    # ------------------------------------------------
-    # Better Interaction
-    # ------------------------------------------------
-
-    net.set_options("""
-    var options = {
-      "physics": {
-        "enabled": true,
-        "stabilization": {
-          "enabled": true,
-          "iterations": 1000,
-          "fit": true
-        }
-      },
-      "interaction": {
-        "hover": true,
-        "navigationButtons": true,
-        "keyboard": true
-      }
-    }
-    """)
-
-
-    # ------------------------------------------------
+   # ------------------------------------------------
     # Render
     # ------------------------------------------------
 
@@ -261,14 +269,31 @@ def render_network(df):
     ) as f:
 
         source = f.read()
+source = source.replace(
+    "</body>",
+    """
+<script type="text/javascript">
 
-    html(
-        source,
-        height=920,
-        scrolling=True,
-    )
+network.once("stabilizationIterationsDone", function () {
 
-    os.remove(html_path)
+    network.fit({
+        animation: {
+            duration: 800,
+            easingFunction: "easeInOutQuad"
+        }
+    });
+
+    network.setOptions({
+        physics: false
+    });
+
+});
+
+</script>
+</body>
+"""
+)
+
 
     # ------------------------------------------------
     # Dashboard Metrics
