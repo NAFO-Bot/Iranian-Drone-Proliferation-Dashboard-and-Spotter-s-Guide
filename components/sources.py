@@ -6,7 +6,7 @@ def render_sources():
     st.title(" Sources & Methodology")
 
     st.markdown("""
-This dashboard visualizes historical transfers of Iranian unmanned aerial systems. Furthermore this platform attempts to map Iran's UAS fleet using publicly available information.No Classified material was used to create this dashboard. Likewise, Radar Reflection and Detection in the IR and Visual Spectrum  ranges are information collected from Open Sources my own models of radar reflection will clearly be labelled as such.
+This dashboard visualizes historical transfers of Iranian unmanned aerial systems. Furthermore, this platform attempts to map Iran's UAS fleet using publicly available information.No Classified material was used to create this dashboard. Likewise, Radar Reflection and Detection in the IR and Visual Spectrum  ranges are information collected from Open Sources my own models of radar reflection will clearly be labelled as such.
 
 The objective of this application is to support exploratory analysis of historical proliferation patterns. It is intended for research, education, and open-source intelligence (OSINT) visualization.
 
@@ -62,7 +62,7 @@ The proliferation data in this dashboard is based on a dataset published by CNAS
 3. Standardize country names.
 4. Assign geographic coordinates.
 5. Build an interactive analytical dashboard using Streamlit and Plotly.
-6. Collates data from many sources including military equipment databases and open-source material
+6. Collate data from many sources, including military equipment databases and open-source material
 
 ---
 
@@ -78,12 +78,11 @@ This application does not model operational capability, battlefield effectivenes
 
 ## Author's Note
 
-Hello and welcome to my Iranian Drone Proliferation Dataset and Handbook. I hope you liked it. Firstly, I would like to thank my teachers at the Institute of Management Study for their invaluable guidance and support. Teaching me how to do research must not have been very easy, and I am extremely thankful that they did. Secondly, there is my family whose love and support have powered every keystroke behind this project. Didi, if you are reading this, I want to thank you for all you do. Lastly, there was the effort behind it all: sleepless nights and coffee-fueled sprints that all led up to this forever semi-finished library of Iranian Drones. To everyone else that inspired me along the way, I bid them my honest thanks, and I hope that I will be able to live up to their expectations of me and the faith that they have placed on my shoulders.
+Hello and welcome to my Iranian Drone Proliferation Dataset and Handbook. I hope you liked it. Firstly, I would like to thank my teachers at the Institute of Management Study for their invaluable guidance and support. Teaching me how to do research must not have been very easy, and I am extremely thankful that they did. Secondly, there is my family whose love and support have powered every keystroke behind this project. Didi, if you are reading this, I want to thank you for all you do. Lastly, there was the effort behind it all: sleepless nights and coffee-fueled sprints that all led up to this forever semi-finished library of Iranian Drones.
 
+On a serious note, CMANO-DB simulations are just that, simulations. Not that it should matter, but real values might differ significantly. My own radar models will clearly be labelled as such.
 
-On a serious note, CMANO-DB simulations are just that, simulations. Not that it should matter, but, real values might differ significantly. My own radar models will clearly be labelled as such.
+Learn from it, play with it, don't harm with it. 
 
-Learn from it, play with it, dont harm with it. 
-
-Should you wish to cite my work please do so as such: Nath.S(2026)-Independent Researcher 
+Should you wish to cite my work, please do so as such: Nath.S(2026)-Independent Researcher 
 """)
