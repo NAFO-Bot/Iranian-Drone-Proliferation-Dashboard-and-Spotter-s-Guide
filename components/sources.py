@@ -78,9 +78,10 @@ This application does not model operational capability, battlefield effectivenes
 
 ## Author's Note
 
-Hello and welcome to my Iranian Drone Proliferation Dataset and Handbook. I hope you liked it. Firstly, I would like to thank my teachers at Institute of Management Study for their invaluable guidance and support. Teaching me how to do research must not have been very easy and I am extremely thankful that they did. Secondly there is my family whose love and support have powered every keystroke behind this project. Didi, if you are reading this I want to thank you for all you do. I used black and red because they're your favourite colors. Lastly there was the effort behind it all, sleepless nights and coffee fueled sprints that all led up to this forever semi-finished library of Iranian Drones.
+Hello and welcome to my Iranian Drone Proliferation Dataset and Handbook. I hope you liked it. Firstly, I would like to thank my teachers at the Institute of Management Study for their invaluable guidance and support. Teaching me how to do research must not have been very easy, and I am extremely thankful that they did. Secondly, there is my family whose love and support have powered every keystroke behind this project. Didi, if you are reading this, I want to thank you for all you do. Lastly, there was the effort behind it all: sleepless nights and coffee-fueled sprints that all led up to this forever semi-finished library of Iranian Drones. To everyone else that inspired me along the way, I bid them my honest thanks, and I hope that I will be able to live up to their expectations of me and the faith that they have placed on my shoulders.
 
-On a serious note, CMANO-DB simulations are just that, simulations. Not that it should matter, but, real values might differ significantly. My own radar models, will clearly be labelled as such.
+
+On a serious note, CMANO-DB simulations are just that, simulations. Not that it should matter, but, real values might differ significantly. My own radar models will clearly be labelled as such.
 
 Learn from it, play with it, dont harm with it. 
 
