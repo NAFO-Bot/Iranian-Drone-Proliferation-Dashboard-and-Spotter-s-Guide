@@ -1,19 +1,33 @@
 from pathlib import Path
+import base64
 
 import streamlit as st
-from streamlit_pdf_viewer import pdf_viewer
 
 ASSETS_DIR = Path("Assets")
 
 
+def show_pdf(pdf_path: Path, height=1000):
+    """Render PDF using an embedded iframe."""
+    with open(pdf_path, "rb") as f:
+        pdf_data = base64.b64encode(f.read()).decode("utf-8")
+
+    pdf_display = f"""
+    <iframe
+        src="data:application/pdf;base64,{pdf_data}"
+        width="100%"
+        height="{height}"
+        type="application/pdf"
+        style="border:none;">
+    </iframe>
+    """
+
+    st.markdown(pdf_display, unsafe_allow_html=True)
+
+
 def render_threat_library():
 
-    st.title(" Threat Library")
+    st.title("📚 Threat Library")
     st.caption("Technical reference library for Iranian UAV platforms.")
-
-    # -------------------------------------------------
-    # Verify Assets folder
-    # -------------------------------------------------
 
     if not ASSETS_DIR.exists():
         st.error("Assets folder not found.")
@@ -28,15 +42,11 @@ def render_threat_library():
         st.warning("No PDF handbooks found.")
         return
 
-    # -------------------------------------------------
-    # Toolbar
-    # -------------------------------------------------
-
     col_search, col_mode, col_count = st.columns([5, 3, 2])
 
     with col_search:
         search = st.text_input(
-            " Search",
+            "Search",
             placeholder="Search handbooks..."
         )
 
@@ -54,7 +64,7 @@ def render_threat_library():
     with col_mode:
         mode = st.radio(
             "View",
-            [" Single", " Compare"],
+            ["Single", "Compare"],
             horizontal=True
         )
 
@@ -63,11 +73,11 @@ def render_threat_library():
 
     st.divider()
 
-    # ==========================================================
+    # ==================================================
     # SINGLE VIEW
-    # ==========================================================
+    # ==================================================
 
-    if mode == " Single":
+    if mode == "Single":
 
         selected = st.selectbox(
             "Select Platform",
@@ -75,37 +85,31 @@ def render_threat_library():
             format_func=lambda x: x.stem
         )
 
-        title_col, button_col = st.columns([6, 1])
+        c1, c2 = st.columns([6, 1])
 
-        with title_col:
+        with c1:
             st.subheader(selected.stem)
 
-        with button_col:
+        with c2:
             st.download_button(
                 "⬇",
                 data=selected.read_bytes(),
                 file_name=selected.name,
                 mime="application/pdf",
-                use_container_width=True
+                use_container_width=True,
             )
 
         st.divider()
 
-        pdf_viewer(
-            input=selected.read_bytes(),
-            width="100%",
-            height=1100
-        )
+        show_pdf(selected, height=1100)
 
-    # ==========================================================
+    # ==================================================
     # COMPARE VIEW
-    # ==========================================================
+    # ==================================================
 
     else:
 
         left_col, right_col = st.columns(2)
-
-        # ---------------- LEFT ----------------
 
         with left_col:
 
@@ -122,16 +126,10 @@ def render_threat_library():
                 file_name=left_pdf.name,
                 mime="application/pdf",
                 key="download_left",
-                use_container_width=True
+                use_container_width=True,
             )
 
-            pdf_viewer(
-                input=left_pdf.read_bytes(),
-                width="100%",
-                height=900
-            )
-
-        # ---------------- RIGHT ----------------
+            show_pdf(left_pdf, height=900)
 
         with right_col:
 
@@ -139,6 +137,10 @@ def render_threat_library():
                 pdf for pdf in pdf_files
                 if pdf != left_pdf
             ]
+
+            if not available_right:
+                st.warning("Only one handbook available.")
+                return
 
             right_pdf = st.selectbox(
                 "Platform B",
@@ -153,11 +155,7 @@ def render_threat_library():
                 file_name=right_pdf.name,
                 mime="application/pdf",
                 key="download_right",
-                use_container_width=True
+                use_container_width=True,
             )
 
-            pdf_viewer(
-                input=right_pdf.read_bytes(),
-                width="100%",
-                height=900
-            )
+            show_pdf(right_pdf, height=900)
