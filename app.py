@@ -7,6 +7,8 @@ from components.network import render_network
 from components.analysis import render_analysis
 from components.sources import render_sources
 from components.threat_library import render_threat_library
+from pathlib import Path
+import fitz  # PyMuPDF
 
 # --------------------------------------------------
 # Page Configuration
