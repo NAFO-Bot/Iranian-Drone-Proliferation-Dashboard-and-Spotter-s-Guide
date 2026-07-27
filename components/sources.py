@@ -6,7 +6,7 @@ def render_sources():
     st.title(" Sources & Methodology")
 
     st.markdown("""
-This dashboard visualizes historical transfers of Iranian unmanned aerial systems. Furthermore, this platform attempts to map Iran's UAS fleet using publicly available information.No Classified material was used to create this dashboard. Likewise, Radar Reflection and Detection in the IR and Visual Spectrum  ranges are information collected from Open Sources my own models of radar reflection will clearly be labelled as such.
+This dashboard visualizes historical transfers of Iranian unmanned aerial systems. Furthermore, this platform attempts to map Iran's UAS fleet using publicly available information.No Classified material was used to create this dashboard. Likewise, Radar Reflection and Detection in the IR and Visual Spectrum  ranges collected from CMANO-DB are placeholders and should be treated as such. My own models of radar reflection will clearly be labelled as such.
 
 The objective of this application is to support exploratory analysis of historical proliferation patterns. It is intended for research, education, and open-source intelligence (OSINT) visualization.
 
@@ -24,7 +24,7 @@ The objective of this application is to support exploratory analysis of historic
 - CSIS
 - AEI
 - OSMP
-- CMANO-DB
+- CMANO-DB as Placeholders where found till the models are made. 
 - Spas Consulting
 - Janes
 
